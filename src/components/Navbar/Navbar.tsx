@@ -1,5 +1,7 @@
 import React from "react";
-import {} from "module";
+import { NavLink } from "react-router-dom";
+
+import "./Navbar.scss";
 
 function Navbar() {
   return (
@@ -7,13 +9,13 @@ function Navbar() {
       <div>Navbar</div>
       <ul>
         <li>
-          <a href="#">Home</a>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <a href="#">Dernières sorties</a>
+          <NavLink to="/releases">Dernières Sorties</NavLink>
         </li>
         <li>
-          <a href="#">Quizz</a>
+          <NavLink to="/quizz">Quizz</NavLink>
         </li>
       </ul>
     </>
