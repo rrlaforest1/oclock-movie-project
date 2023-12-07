@@ -10,6 +10,7 @@ function App() {
     <MoviesController>
       <div>
         <Navbar />
+
         <Routes>
           <Route path={"/"} element={<HomePage />} />
           <Route path={"/movie/:movieId"} element={<MovieDetails />} />

@@ -4,7 +4,9 @@ import { MoviesContext } from "../../context/MoviesContext";
 import "./MovieList.scss";
 
 function MovieList() {
-  const [movies, setMovies] = useContext(MoviesContext);
+  const { valueMovie } = useContext(MoviesContext);
+  const [movies] = valueMovie;
+
   console.log("movies", movies.results);
 
   return (
@@ -16,11 +18,13 @@ function MovieList() {
               key={movie.id}
               className="card max-w-sm rounded overflow-hidden shadow-lg mx-auto my-8"
             >
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className="w-full"
-              />
+              <Link to={`/movie/${movie.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                  className="w-full"
+                />
+              </Link>
               <div className="cardContent px-6 py-4">
                 <h2 className="font-bold text-xl mb-2"> {movie.title}</h2>
                 <p className="text-gray-600 text-base"> {movie.overview}</p>
