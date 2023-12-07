@@ -1,31 +1,19 @@
-import { useEffect } from "react";
-import axios from "axios";
+import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
+import MoviesController from "./context/MoviesContext";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./components/pages/HomePage/HomePage";
 
 function App() {
-  // const [count, setCount] = useState(0);
-
-  const fetchMovie = async () => {
-    try {
-      const response = await axios.get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=9d2a202f1952323a99e4d270b96418d7"
-      );
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchMovie();
-  }, []);
-
   return (
-    <>
+    <MoviesController>
       <div>
-        <h1>Home</h1>
+        <Navbar />
+        <Routes>
+          <Route path={"/"} element={<HomePage />} />
+        </Routes>
       </div>
-    </>
+    </MoviesController>
   );
 }
 
