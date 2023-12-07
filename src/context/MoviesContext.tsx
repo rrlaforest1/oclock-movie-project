@@ -13,10 +13,16 @@ const MoviesController = ({ children }: any) => {
   // const API_KEY = import.meta.env.VITE_API_KEY;
   const API_KEY = "9d2a202f1952323a99e4d270b96418d7";
 
-  const apiURL =
-    query !== ""
-      ? `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
-      : `https://api.themoviedb.org/3/discover/movie?query=${query}&api_key=${API_KEY}`;
+  console.log("query on moviecontext", query);
+
+  const apiURL = !query.length
+    ? `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
+    : `https://api.themoviedb.org/3/search/movie?query=${query.replace(
+        / /g,
+        "%20"
+      )}&api_key=${API_KEY}`;
+
+  console.log("apiURL", apiURL);
 
   const fetchMovie = async () => {
     console.log("fetchMovie");
