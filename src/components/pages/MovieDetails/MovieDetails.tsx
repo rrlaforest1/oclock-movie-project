@@ -17,11 +17,13 @@ function MovieDetails() {
 
   console.log("movies MovieDetails", movies);
 
+
   return (
     <>
       <div className="movie-details">
         <img
           src={`https://image.tmdb.org/t/p/original${film.backdrop_path}`}
+          
           alt={film.title}
           className="w-full"
         />

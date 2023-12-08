@@ -1,12 +1,15 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 //import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { MoviesContext } from "./MoviesContext";
 
 export const SearchContext = createContext("");
 
 const SearchController = ({ children }: any) => {
+  const [movies, setMovies] = useContext(MoviesContext);
+
   const [query, setQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   //let location = useLocation();
 
   const API_KEY = import.meta.env.VITE_API_KEY;
@@ -31,16 +34,17 @@ const SearchController = ({ children }: any) => {
       const response = await axios.get(apiURL);
 
       console.log(response.data);
-      //setQuery(response.data);
-      setIsLoading(true);
+      setMovies(response.data);
     } catch (error) {
       console.log(error);
-      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchSearch();
+    if(query !== ""){
+      fetchSearch();
+    }
+    
   }, [query]);
 
   // est ce qu'on peut appeler les values pareils que les state ?
@@ -48,7 +52,8 @@ const SearchController = ({ children }: any) => {
     <SearchContext.Provider
       value={[query, setQuery] }
     >
-      {isLoading ? children : "rien"}
+      {/* {isLoading ? children : "rien"} */}
+      {children}
     </SearchContext.Provider>
   );
 };

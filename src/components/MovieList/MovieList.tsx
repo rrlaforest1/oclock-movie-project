@@ -9,18 +9,22 @@ function MovieList() {
 
   console.log("movies", movies.results);
 
+  const imgPlaceholder = "https://t3.ftcdn.net/jpg/02/48/42/64/240_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg";
+
+
   return (
     <>
       <div className="cards">
         {movies.results.map((movie, index) => {
           return (
-            <div
+            <>{movie.poster_path && <div
               key={movie.id}
               className="card max-w-sm rounded overflow-hidden shadow-lg mx-auto my-8"
             >
               <Link to={`/movie/${movie.id}`}>
+              
                 <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path} `: imgPlaceholder}
                   alt={movie.title}
                   className="w-full"
                 />
@@ -37,7 +41,7 @@ function MovieList() {
                   </Link>
                 </p>
               </div>
-            </div>
+            </div>}</>
           );
         })}
       </div>
