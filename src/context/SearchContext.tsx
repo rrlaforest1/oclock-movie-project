@@ -14,7 +14,6 @@ const SearchController = ({ children }: any) => {
 
   const API_KEY = import.meta.env.VITE_API_KEY;
 
-
   console.log("query on moviecontext", query);
 
   // const apiURL = `https://api.themoviedb.org/3/search/movie?&language=fr-FR&query=${query.replace(
@@ -23,7 +22,6 @@ const SearchController = ({ children }: any) => {
   //     )}&api_key=${API_KEY}`;
 
   const apiURL = `https://api.themoviedb.org/3/search/movie?&language=fr-FR&query=${query}&api_key=${API_KEY}`;
-      
 
   console.log("apiURLSearch", apiURL);
 
@@ -41,17 +39,14 @@ const SearchController = ({ children }: any) => {
   };
 
   useEffect(() => {
-    if(query !== ""){
+    if (query !== "") {
       fetchSearch();
     }
-    
   }, [query]);
 
   // est ce qu'on peut appeler les values pareils que les state ?
   return (
-    <SearchContext.Provider
-      value={[query, setQuery] }
-    >
+    <SearchContext.Provider value={[query, setQuery]}>
       {/* {isLoading ? children : "rien"} */}
       {children}
     </SearchContext.Provider>

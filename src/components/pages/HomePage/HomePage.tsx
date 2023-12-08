@@ -5,7 +5,7 @@ import SearchBar from "../../Search/Search";
 function HomePage() {
   return (
     <>
-      <div>HomePage</div>
+      <div className="text-xl">HomePage</div>
       <SearchBar />
       <MovieList />
     </>

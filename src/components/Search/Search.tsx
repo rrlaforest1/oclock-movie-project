@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
+import { useLocation } from "react-router-dom";
 
 const SearchBar = () => {
   const [query, setQuery] = useContext(SearchContext);
@@ -9,15 +10,15 @@ const SearchBar = () => {
 
   const handleChange = (event) => {
     setInput(event.target.value);
-    console.log("input", input);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("input2", input);
+    // console.log("input2", input);
+    // console.log("input", input);
 
     setQuery(input);
-    console.log("query", query);
+    // console.log("query", query);
   };
 
   return (
