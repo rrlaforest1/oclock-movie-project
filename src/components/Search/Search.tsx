@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { MoviesContext } from "../../context/MoviesContext";
+import { SearchContext } from "../../context/SearchContext";
 
 const SearchBar = () => {
-  const { valueQuery } = useContext(MoviesContext);
-  const [query, setQuery] = valueQuery;
+  const [query, setQuery] = useContext(SearchContext);
 
   const [input, setInput] = useState("");
 

@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MoviesContext } from "../../context/MoviesContext";
+import { SearchContext } from "../../context/SearchContext";
 import "./MovieList.scss";
 
 function MovieList() {
-  const { valueMovie } = useContext(MoviesContext);
-  const [movies] = valueMovie;
+  const [movies , setMovies] = useContext(MoviesContext);
 
   console.log("movies", movies.results);
 

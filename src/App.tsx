@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import MoviesController from "./context/MoviesContext";
+import SearchController from "./context/SearchContext";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./components/pages/HomePage/HomePage";
 import MovieDetails from "./components/pages/MovieDetails/MovieDetails";
@@ -8,14 +9,17 @@ import MovieDetails from "./components/pages/MovieDetails/MovieDetails";
 function App() {
   return (
     <MoviesController>
-      <div>
-        <Navbar />
+      <SearchController>
+        <div>
+          <Navbar />
 
-        <Routes>
-          <Route path={"/"} element={<HomePage />} />
-          <Route path={"/movie/:movieId"} element={<MovieDetails />} />
-        </Routes>
-      </div>
+          <Routes>
+            <Route path={"/"} element={<HomePage />} />
+            <Route path={"/movie/:movieId"} element={<MovieDetails />} />
+            {/* <Route path={"/releases"} element={<Release />}/> */}
+          </Routes>
+        </div>
+      </SearchController>
     </MoviesController>
   );
 }

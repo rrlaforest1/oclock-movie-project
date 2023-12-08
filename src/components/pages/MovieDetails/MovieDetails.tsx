@@ -5,8 +5,7 @@ import { useParams } from "react-router-dom";
 import "./MovieDetails.scss";
 
 function MovieDetails() {
-  const { valueMovie } = useContext(MoviesContext);
-  const [movies, setMovies] = valueMovie;
+  const [movies , setMovies] = useContext(MoviesContext);
 
   console.log("movies Moviedetails", movies);
 
