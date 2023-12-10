@@ -86,7 +86,8 @@ const Quizz = () => {
           Nouveau film
         </button>
   
-        <div className="text-center">résultat : {result}</div>
+        <div className="text-center shadow-lg p-4 bg-gray-100 rounded mt-4">résultat : {result}</div>
+
       </div>
     </>
   );
