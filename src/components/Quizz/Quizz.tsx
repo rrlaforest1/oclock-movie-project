@@ -1,12 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { MoviesContext } from "../../context/MoviesContext";
 
+// interface Quizz {
+//   title : string;
+// }
+
 const Quizz = () => {
-  const [movies, setMovies] = useContext(MoviesContext);
-  const [randomMovie, setRandonMovie] = useState([]);
+  const [movies, setMovies] = useContext(MoviesContext); // on a enlevé setMovies
+  const [randomMovie, setRandonMovie] = useState<any>("");
   console.log("quizzmovies", movies);
 
-  const getOneRandomMovie = (movies) => {
+  const getOneRandomMovie = (movies : any) => {
     const values = Object.values(movies);
     const randomChoice = Math.floor(Math.random() * values.length);
     // return movies.results[randomChoice];
@@ -21,7 +25,7 @@ const Quizz = () => {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
 
-  const compareRelease = (dateMovie, datePlayer) => {
+  const compareRelease = (dateMovie : any, datePlayer: any) => {
     if (dateMovie == datePlayer) {
       setResult("Youpi ! Vous avez gagné : :-D ");
     } else {
@@ -29,19 +33,21 @@ const Quizz = () => {
     }
   };
 
-  const handleOnChange = (event) => {
+  const handleOnChange = (event: any) => {
     setInput(event.target.value);
     console.log(event.target.value);
   };
 
-  const handleOnSubmit = (event) => {
+  const handleOnSubmit = (event: any) => {
     event.preventDefault();
     console.log("submit !!!!!");
 
     // const selectedMovie = getOneRandomMovie(movies);
     //console.log(selectedMovie);
 
-    const releaseDate = randomMovie.release_date;
+     
+
+    const releaseDate  = randomMovie.release_date ;
     //console.log("date complete", releaseDate);
     const releaseYear = releaseDate.slice(0, 4);
     console.log("date year", releaseYear);
