@@ -13,6 +13,11 @@ const Quizz = () => {
     setRandonMovie(movies.results[randomChoice]);
   };
 
+  const handleNewMovie = () => {
+    getOneRandomMovie(movies);
+  }; 
+  // J'ai fait une fonction pour tirer un nouveau film
+
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
 
@@ -50,28 +55,44 @@ const Quizz = () => {
 
   return (
     <>
-      <h1>Quizz</h1>
-      <div>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${randomMovie.poster_path}`}
-          alt=""
-        />
-        <h2>{randomMovie.title}</h2>
-      </div>
+      <div className="flex flex-col items-center max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold mb-4">Quizz</h1>
+        
+        <div className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center mb-4">
+          <img
+            src={`https://image.tmdb.org/t/p/w500${randomMovie.poster_path}`}
+            alt={randomMovie.title}
+            className="rounded-lg mb-2"
+          />
+          <h2>{randomMovie.title}</h2>
+        </div>
+  
+        <div className="mb-4">
+          <form action="" onSubmit={handleOnSubmit} className="flex flex-col items-center">
+            <div className="mb-2">
+              <label htmlFor="date" className="text-lg">Devinez l'année de sortie</label>
+            </div>
+            <div>
+              <input id="date" type="text" onChange={handleOnChange} className="border p-2 rounded mb-4" />
+            </div>
+            <button className="bg-blue-500 text-white p-2 rounded">Envoyer</button>
+          </form>
+        </div>
+  
+        <button 
+          onClick={handleNewMovie}
+          className="bg-green-500 text-white p-2 rounded mt-4"
+        >
+          Nouveau film
+        </button>
+  
+        <div className="text-center shadow-lg p-4 bg-gray-100 rounded mt-4">résultat : {result}</div>
 
-      <div>
-        <form action="" onSubmit={handleOnSubmit}>
-          <label htmlFor="date">
-            choisir l'année de sortie
-            <input id="date" type="text" onChange={handleOnChange} />
-          </label>
-          <button>Submit</button>
-        </form>
       </div>
-
-      <div>résultat : {result}</div>
     </>
   );
+  
+  
 };
 
 export default Quizz;
