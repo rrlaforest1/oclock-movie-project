@@ -3,7 +3,7 @@ import { MoviesContext } from "../../../context/MoviesContext";
 import { useParams, useNavigate } from "react-router-dom";
 
 import "./MovieDetails.scss";
-import { log } from "util";
+//import { log } from "util";
 
 function MovieDetails() {
   const [movies] = useContext(MoviesContext);
@@ -11,12 +11,12 @@ function MovieDetails() {
 
   const navigate = useNavigate();
 
-  const film = movies.results.find((movie) => movie.id == movieId);
-  const filmIndex = movies.results.findIndex((movie) => movie.id == movieId);
+  const film = movies.results.find((movie : any) => movie.id == movieId);
+  const filmIndex = movies.results.findIndex((movie : any) => movie.id == movieId);
 
   console.log("filmIndex", filmIndex);
 
-  const handleClick = (direction) => {
+  const handleClick = (direction : any) => {
     if (direction === "next") {
       navigate("/movie/" + movies.results[filmIndex + 1].id);
     } else {
