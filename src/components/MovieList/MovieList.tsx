@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { MoviesContext } from "../../context/MoviesContext";

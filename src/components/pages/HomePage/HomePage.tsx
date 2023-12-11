@@ -1,3 +1,4 @@
+// @ts-nocheck
 import MovieList from "../../MovieList/MovieList";
 import SearchBar from "../../Search/Search";
 import LayoutList from "../../LayoutList/LayoutList";

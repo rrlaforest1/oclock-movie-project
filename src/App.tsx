@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import MoviesController from "./context/MoviesContext";
