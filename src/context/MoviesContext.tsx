@@ -19,7 +19,6 @@ const MoviesController = ({ children }: any) => {
 
     try {
       const response = await axios.get(apiURL);
-
       console.log(response.data);
       setMovies(response.data);
       setIsLoading(true);
